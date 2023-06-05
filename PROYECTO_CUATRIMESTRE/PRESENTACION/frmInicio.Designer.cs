@@ -36,7 +36,7 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnProducto = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -70,7 +70,7 @@
             this.panelMenu.Controls.Add(this.btnVentas);
             this.panelMenu.Controls.Add(this.btnPedidos);
             this.panelMenu.Controls.Add(this.btnStock);
-            this.panelMenu.Controls.Add(this.button4);
+            this.panelMenu.Controls.Add(this.btnProducto);
             this.panelMenu.Controls.Add(this.pbLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -89,6 +89,7 @@
             this.btnProveedor.TabIndex = 5;
             this.btnProveedor.Text = "PROVEEDORES";
             this.btnProveedor.UseVisualStyleBackColor = false;
+            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // btnVentas
             // 
@@ -101,6 +102,7 @@
             this.btnVentas.TabIndex = 4;
             this.btnVentas.Text = "VENTAS";
             this.btnVentas.UseVisualStyleBackColor = false;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnPedidos
             // 
@@ -113,6 +115,7 @@
             this.btnPedidos.TabIndex = 3;
             this.btnPedidos.Text = "PEDIDOS";
             this.btnPedidos.UseVisualStyleBackColor = false;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // btnStock
             // 
@@ -125,20 +128,23 @@
             this.btnStock.TabIndex = 2;
             this.btnStock.Text = "STOCK";
             this.btnStock.UseVisualStyleBackColor = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
-            // button4
+            // btnProducto
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::PRESENTACION.Properties.Resources._10;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 210);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 62);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "PRODUCTOS";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Image = global::PRESENTACION.Properties.Resources._10;
+            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducto.Location = new System.Drawing.Point(0, 210);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(200, 62);
+            this.btnProducto.TabIndex = 1;
+            this.btnProducto.Text = "PRODUCTOS";
+            this.btnProducto.UseVisualStyleBackColor = false;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // pbLogo
             // 
@@ -203,7 +209,7 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Button btnStock;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.PictureBox pictureBox2;
