@@ -41,5 +41,33 @@ namespace NEGOCIO
                 conectar.cerrarConexion();
             }
         }
+        public void EliminarFijo(int producto)
+        {
+            try
+            {
+                AccesoDato datos = new AccesoDato();
+                datos.setearConsulta("DELETE FROM Producto WHERE Id_producto = @id");
+                datos.setearParametro("@id", producto);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void Agregar(Producto nuevo)
+        {
+            AccesoDato datos = new AccesoDato();
+            try
+            {
+                datos.setearConsulta("INSERT INTO Producto ()");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

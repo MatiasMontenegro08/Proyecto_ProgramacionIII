@@ -70,10 +70,10 @@
     <Compile Include="frmPedido.Designer.cs">
       <DependentUpon>frmPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProductoNuevo.cs">
+    <Compile Include="frmProductos\frmProductoNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProductoNuevo.Designer.cs">
+    <Compile Include="frmProductos\frmProductoNuevo.Designer.cs">
       <DependentUpon>frmProductoNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProductos\frmProducto.cs">
@@ -102,7 +102,7 @@
     <EmbeddedResource Include="frmPedido.resx">
       <DependentUpon>frmPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProductoNuevo.resx">
+    <EmbeddedResource Include="frmProductos\frmProductoNuevo.resx">
       <DependentUpon>frmProductoNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos\frmProducto.resx">
