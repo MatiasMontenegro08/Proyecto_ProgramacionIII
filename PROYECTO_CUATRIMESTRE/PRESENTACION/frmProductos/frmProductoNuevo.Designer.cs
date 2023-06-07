@@ -40,6 +40,8 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnImg = new System.Windows.Forms.Button();
+            this.pbImg = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImg)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,6 +98,7 @@
             this.txtImgUrl.Name = "txtImgUrl";
             this.txtImgUrl.Size = new System.Drawing.Size(203, 20);
             this.txtImgUrl.TabIndex = 7;
+            this.txtImgUrl.Leave += new System.EventHandler(this.txtImgUrl_Leave);
             // 
             // label4
             // 
@@ -108,7 +111,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(38, 135);
+            this.btnAceptar.Location = new System.Drawing.Point(37, 277);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(95, 32);
             this.btnAceptar.TabIndex = 9;
@@ -118,7 +121,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(139, 135);
+            this.btnLimpiar.Location = new System.Drawing.Point(138, 277);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(95, 32);
             this.btnLimpiar.TabIndex = 10;
@@ -128,7 +131,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(240, 135);
+            this.btnCancel.Location = new System.Drawing.Point(239, 277);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(95, 32);
             this.btnCancel.TabIndex = 11;
@@ -148,12 +151,22 @@
             this.btnImg.UseVisualStyleBackColor = true;
             this.btnImg.Click += new System.EventHandler(this.btnImg_Click);
             // 
+            // pbImg
+            // 
+            this.pbImg.Location = new System.Drawing.Point(105, 118);
+            this.pbImg.Name = "pbImg";
+            this.pbImg.Size = new System.Drawing.Size(229, 153);
+            this.pbImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImg.TabIndex = 14;
+            this.pbImg.TabStop = false;
+            // 
             // frmProductoNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(371, 178);
+            this.ClientSize = new System.Drawing.Size(375, 321);
+            this.Controls.Add(this.pbImg);
             this.Controls.Add(this.btnImg);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLimpiar);
@@ -169,6 +182,7 @@
             this.Name = "frmProductoNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NUEVO PRODUCTO";
+            ((System.ComponentModel.ISupportInitialize)(this.pbImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +202,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnImg;
+        private System.Windows.Forms.PictureBox pbImg;
     }
 }

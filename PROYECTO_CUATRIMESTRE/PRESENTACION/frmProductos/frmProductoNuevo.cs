@@ -3,8 +3,10 @@ using NEGOCIO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,7 +82,13 @@ namespace PRESENTACION
 
         private void btnImg_Click(object sender, EventArgs e)
         {
-
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtImgUrl.Text = archivo.FileName;
+                CargarImagen(archivo.FileName);
+            }
         }
 
         //MÉTODOS
@@ -113,7 +121,47 @@ namespace PRESENTACION
                 return true;
             }
             //Validar si txtCosto solo ingreso números.
+            if (SoloNumero(txtCosto.Text))
+            {
+                MessageBox.Show("Ingresar solo números en en campo COSTO!");
+                txtCosto.Focus();
+                return true;
+            }
             return false;
+        }
+        private bool SoloNumero(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (char.IsNumber(caracter))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void CargarImagen(string imagen)
+        {
+            try
+            {
+                pbImg.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pbImg.Load("https://bicentenario.gob.pe/biblioteca/themes/biblioteca/assets/images/not-available-es.png");
+            }
+        }
+        private void guardarImagen(OpenFileDialog archivo)
+        {
+            if (archivo != null && !(txtImgUrl.Text.ToUpper().Contains("HTTP")))
+            {
+                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName);
+            }
+        }
+
+        private void txtImgUrl_Leave(object sender, EventArgs e)
+        {
+            CargarImagen(txtImgUrl.Text);
         }
     }
 }
