@@ -146,6 +146,7 @@
             this.btnImg.Text = "+";
             this.btnImg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnImg.UseVisualStyleBackColor = true;
+            this.btnImg.Click += new System.EventHandler(this.btnImg_Click);
             // 
             // frmProductoNuevo
             // 

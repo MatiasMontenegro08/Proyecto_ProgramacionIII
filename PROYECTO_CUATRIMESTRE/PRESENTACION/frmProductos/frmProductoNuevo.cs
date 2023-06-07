@@ -78,6 +78,11 @@ namespace PRESENTACION
             }
         }
 
+        private void btnImg_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //MÉTODOS
         private void Limpiar()
         {
@@ -107,6 +112,7 @@ namespace PRESENTACION
                 txtCosto.Focus();
                 return true;
             }
+            //Validar si txtCosto solo ingreso números.
             return false;
         }
     }

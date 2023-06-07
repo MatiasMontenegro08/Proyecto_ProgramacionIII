@@ -31,16 +31,28 @@ namespace PRESENTACION
             nuevo.ShowDialog();
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //MÉTODOS
         private void cargarPlanilla()
         {
             ProductoNegocio lista = new ProductoNegocio();
             listaProducto = lista.Listar();
             dgvProductos.DataSource = listaProducto;
+            OcultarColumnas();
         }
-
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void OcultarColumnas()
         {
-
+            dgvProductos.Columns["Id"].Visible = false;
+            dgvProductos.Columns["ImgUrl"].Visible = false;
         }
     }
 }
