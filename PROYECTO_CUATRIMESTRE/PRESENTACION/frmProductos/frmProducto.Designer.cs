@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbImg = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -52,7 +51,6 @@
             // 
             // pbImg
             // 
-            this.pbImg.Image = ((System.Drawing.Image)(resources.GetObject("pbImg.Image")));
             this.pbImg.Location = new System.Drawing.Point(6, 14);
             this.pbImg.Name = "pbImg";
             this.pbImg.Size = new System.Drawing.Size(380, 396);
@@ -96,6 +94,7 @@
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(369, 350);
             this.dgvProductos.TabIndex = 7;
+            this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             // 
             // btnNuevo
             // 

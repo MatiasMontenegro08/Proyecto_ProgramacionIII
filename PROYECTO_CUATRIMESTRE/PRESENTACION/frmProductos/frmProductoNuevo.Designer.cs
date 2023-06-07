@@ -41,7 +41,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnImg = new System.Windows.Forms.Button();
             this.pbImg = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImg)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -153,12 +155,21 @@
             // 
             // pbImg
             // 
-            this.pbImg.Location = new System.Drawing.Point(105, 118);
+            this.pbImg.Location = new System.Drawing.Point(6, 11);
             this.pbImg.Name = "pbImg";
-            this.pbImg.Size = new System.Drawing.Size(229, 153);
+            this.pbImg.Size = new System.Drawing.Size(223, 136);
             this.pbImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImg.TabIndex = 14;
             this.pbImg.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pbImg);
+            this.groupBox1.Location = new System.Drawing.Point(105, 118);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(238, 153);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
             // 
             // frmProductoNuevo
             // 
@@ -166,7 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(375, 321);
-            this.Controls.Add(this.pbImg);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnImg);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLimpiar);
@@ -182,7 +193,9 @@
             this.Name = "frmProductoNuevo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NUEVO PRODUCTO";
+            this.Load += new System.EventHandler(this.frmProductoNuevo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImg)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +216,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnImg;
         private System.Windows.Forms.PictureBox pbImg;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

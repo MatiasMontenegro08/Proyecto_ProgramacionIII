@@ -27,6 +27,7 @@ namespace PRESENTACION
         {
             InitializeComponent();
             producto = seleccionado;
+            Text = "EDITAR PRODUCTO";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace PRESENTACION
                     negocio.Agregar(producto);
                     MessageBox.Show("Producto agregado!");
                 }
-                //GuardarImagen(archivo); //Método para poder guardar la imágen.
+                GuardarImagen(archivo); //Método para poder guardar la imágen.
                 //Cerramos la ventana una vez cargado o modificado el producto.
                 //Opcion dos: antes de cerrar la ventana, preguntar si desea agregar otro producto.
                 Close();
@@ -91,6 +92,31 @@ namespace PRESENTACION
             }
         }
 
+        private void txtImgUrl_Leave(object sender, EventArgs e)
+        {
+            CargarImagen(txtImgUrl.Text);
+        }
+
+        private void frmProductoNuevo_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (producto != null)
+                {
+                    txtNombre.Text = producto.Nombre;
+                    txtDesc.Text = producto.Descripcion;
+                    txtCosto.Text = producto.PrecioUnitario.ToString();
+                    txtImgUrl.Text = producto.ImgUrl;
+                    CargarImagen(producto.ImgUrl);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         //MÉTODOS
         private void Limpiar()
         {
@@ -98,6 +124,7 @@ namespace PRESENTACION
             txtDesc.Clear();
             txtCosto.Clear();
             txtImgUrl.Clear();
+            pbImg.Image = null;
             txtNombre.Focus();
         }
         private bool ValidarDatos()
@@ -151,17 +178,12 @@ namespace PRESENTACION
                 pbImg.Load("https://bicentenario.gob.pe/biblioteca/themes/biblioteca/assets/images/not-available-es.png");
             }
         }
-        private void guardarImagen(OpenFileDialog archivo)
+        private void GuardarImagen(OpenFileDialog archivo)
         {
             if (archivo != null && !(txtImgUrl.Text.ToUpper().Contains("HTTP")))
             {
                 File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName);
             }
-        }
-
-        private void txtImgUrl_Leave(object sender, EventArgs e)
-        {
-            CargarImagen(txtImgUrl.Text);
         }
     }
 }
