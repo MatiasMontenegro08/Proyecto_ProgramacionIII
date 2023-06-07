@@ -18,6 +18,7 @@ namespace DOMINIO
         public string Producto { get; set; }
         [DisplayName("Cantidad")]
         public int CantidadProducto { get; set; }
+        public decimal Costo { get; set; }
 
         [DisplayName("Proveedor")]
         public int IdProveedor { get; set; }

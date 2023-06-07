@@ -23,9 +23,30 @@ namespace PRESENTACION
         private void frmPedido_Load(object sender, EventArgs e)
         {
             cargarPlanilla();
-
-            
         }
+
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio negocio = new PedidoNegocio();
+            try
+            {
+                if (Validaciones())
+                {
+                    return;
+                }
+                Pedido pedido = new Pedido();
+                pedido.FechaPedido = txtFecha.Text;
+                pedido.IdProducto = Convert.ToInt32(cbxProducto.SelectedItem);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error!" + ex.ToString());
+            }
+        }
+
+        //MÉTODOS
         private void cargarPlanilla()
         {
             PedidoNegocio negocio = new PedidoNegocio();
@@ -38,6 +59,39 @@ namespace PRESENTACION
             dgvPedido.Columns["Id"].Visible = false;
             dgvPedido.Columns["IdProducto"].Visible = false;
             dgvPedido.Columns["IdProveedor"].Visible = false;
+        }
+        private bool Validaciones()
+        {
+            if (txtFecha.Text == "")
+            {
+                MessageBox.Show("Completar el campo FECHA!");
+                txtFecha.Focus();
+                return true;
+            }
+            if (txtCantidad.Text == "")
+            {
+                MessageBox.Show("Completar el campo CANTIDAD!");
+                txtCantidad.Focus();
+                return true;
+            }
+            if (SoloNumero(txtCantidad.Text))
+            {
+                MessageBox.Show("Ingresar solo números en en campo CANTIDAD!");
+                txtCantidad.Focus();
+                return true;
+            }
+            return false;
+        }
+        private bool SoloNumero(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (char.IsNumber(caracter))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
