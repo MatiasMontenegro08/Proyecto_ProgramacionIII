@@ -15,7 +15,7 @@ namespace PRESENTACION
     public partial class frmProductoNuevo : Form
     {
         private Producto producto = null;
-        private OpenFileDialog archivo = null;
+        private OpenFileDialog archivo = null; //Para cargar imagenes.
 
         public frmProductoNuevo()
         {
@@ -57,6 +57,20 @@ namespace PRESENTACION
 
                 /*Faltan agregar los métodos de la clase Negocio para 
                  porder cargar los productos a la base de datos*/
+                if (producto.Id != 0)
+                {
+                    negocio.Modificar(producto);
+                    MessageBox.Show("Producto modificado!");
+                }
+                else
+                {
+                    negocio.Agregar(producto);
+                    MessageBox.Show("Producto agregado!");
+                }
+                //GuardarImagen(archivo); //Método para poder guardar la imágen.
+                //Cerramos la ventana una vez cargado o modificado el producto.
+                //Opcion dos: antes de cerrar la ventana, preguntar si desea agregar otro producto.
+                Close();
             }
             catch (Exception ex)
             {

@@ -21,9 +21,9 @@ namespace NEGOCIO
                 while (conectar.Lector.Read())
                 {
                     Producto temporal = new Producto();
-                    temporal.Id = (int)conectar.Lector["Id"];
+                    temporal.Id = (int)conectar.Lector["Id_producto"];
                     temporal.Nombre = (string)conectar.Lector["Nombre"];
-                    temporal.Descripcion = (string)conectar.Lector["Description"];
+                    temporal.Descripcion = (string)conectar.Lector["Descripcion"];
                     temporal.PrecioUnitario = (decimal)conectar.Lector["PrecioUnit"];
                     temporal.ImgUrl = (string)conectar.Lector["Imagen"];
 
@@ -61,12 +61,46 @@ namespace NEGOCIO
             AccesoDato datos = new AccesoDato();
             try
             {
-                datos.setearConsulta("INSERT INTO Producto ()");
+                datos.setearConsulta("INSERT INTO Producto (Nombre, Descripcion, PrecioUnit, Imagen) VALUES (@Nombre, @Desc, @Precio, @Img);");
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Desc", nuevo.Descripcion);
+                datos.setearParametro("@Precio", nuevo.PrecioUnitario);
+                datos.setearParametro("@Img", nuevo.ImgUrl);
+
+                datos.ejecutarAccion();
+
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void Modificar(Producto seleccionado)
+        {
+            AccesoDato datos = new AccesoDato();
+            try
+            {
+                datos.setearConsulta("UPDATE Producto SET Nombre = @Nombre, Descripcion = @Desc, PrecioUnit = @Precio, Imagen = @Img WHERE Id_producto = @Id;");
+                datos.setearParametro("@Nombre", seleccionado.Nombre);
+                datos.setearParametro("@Desc", seleccionado.Descripcion);
+                datos.setearParametro("@Precio", seleccionado.PrecioUnitario);
+                datos.setearParametro("@Img", seleccionado.ImgUrl);
+                datos.setearParametro("@Id", seleccionado.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
     }
