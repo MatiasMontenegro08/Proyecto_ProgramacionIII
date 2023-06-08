@@ -15,6 +15,7 @@ namespace PRESENTACION
     public partial class frmPedido : Form
     {
         List<Pedido> listaPedido;
+
         public frmPedido()
         {
             InitializeComponent();
