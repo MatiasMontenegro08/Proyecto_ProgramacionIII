@@ -75,5 +75,46 @@ namespace NEGOCIO
                 datos.cerrarConexion();
             }
         }
+        public void Modificar (Pedido seleccionado)
+        {
+            AccesoDato conectar = new AccesoDato();
+            try
+            {
+                conectar.setearConsulta("UPDATE Pedido SET Id_producto = @IdProd, Cantidad_pedido = @Cant, Fecha = @Fecha, Id_proveedor = @IdProve, Costo = @Costo WHERE Id_pedido = @Id;");
+                conectar.setearParametro("@IdProd", seleccionado.IdProducto);
+                conectar.setearParametro("@Cant", seleccionado.CantidadProducto);
+                conectar.setearParametro("@Fecha", seleccionado.FechaPedido);
+                conectar.setearParametro("@IdProve", seleccionado.IdProveedor);
+                conectar.setearParametro("@Costo", seleccionado.Costo);
+                conectar.setearParametro("@Id", seleccionado.Id);
+                conectar.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conectar.cerrarConexion();
+            }
+        }
+        public void EliminarFijo(int seleccionado)
+        {
+            AccesoDato conectar = new AccesoDato();
+            try
+            {
+                conectar.setearConsulta("DELETE FROM Pedido WHERE Id_pedido = @Id;");
+                conectar.setearParametro("@Id", seleccionado);
+                conectar.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conectar.cerrarConexion();
+            }
+        }
     }
 }

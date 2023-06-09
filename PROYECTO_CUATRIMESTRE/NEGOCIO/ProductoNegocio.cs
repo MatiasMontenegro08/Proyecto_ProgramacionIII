@@ -43,9 +43,9 @@ namespace NEGOCIO
         }
         public void EliminarFijo(int producto)
         {
+            AccesoDato datos = new AccesoDato();
             try
             {
-                AccesoDato datos = new AccesoDato();
                 datos.setearConsulta("DELETE FROM Producto WHERE Id_producto = @id");
                 datos.setearParametro("@id", producto);
                 datos.ejecutarAccion();
@@ -54,6 +54,10 @@ namespace NEGOCIO
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
         public void Agregar(Producto nuevo)
