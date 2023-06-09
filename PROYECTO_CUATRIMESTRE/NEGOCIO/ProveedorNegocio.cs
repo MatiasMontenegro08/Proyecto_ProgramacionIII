@@ -72,7 +72,7 @@ namespace NEGOCIO
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("INSERT INTO Proveedor (Id_Proveedor, Nombre_prov, Direccion, Telefono, Correo, PaginaWeb) VALUES (@Nombre, @Dire, @Tel, @Email, @PagWeb);");
+                conectar.setearConsulta("INSERT INTO Proveedor (Nombre_prov, Direccion, Telefono, Correo, PaginaWeb) VALUES (@Nombre, @Dire, @Tel, @Email, @PagWeb);");
                 conectar.setearParametro("@Nombre", nuevo.NombreProv);
                 conectar.setearParametro("@Dire", nuevo.DireccionProv);
                 conectar.setearParametro("@Tel", nuevo.TelProv);

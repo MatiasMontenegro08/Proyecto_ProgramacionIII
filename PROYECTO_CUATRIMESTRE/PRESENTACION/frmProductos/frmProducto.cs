@@ -91,7 +91,7 @@ namespace PRESENTACION
             }
             catch (Exception)
             {
-                pbImg.Load("https://bicentenario.gob.pe/biblioteca/themes/biblioteca/assets/images/not-available-es.png");
+                pbImg.Load("https://programacion.net/files/article/20161110041116_image-not-found.png");
             }
         }
     }
