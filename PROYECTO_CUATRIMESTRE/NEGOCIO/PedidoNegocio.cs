@@ -15,7 +15,7 @@ namespace NEGOCIO
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("SELECT P.Id_pedido, P.Id_producto, P.Costo, P.Cantidad_pedido, P.Fecha, P.Id_proveedor, prod.Nombre 'Producto', Prove.Nombre_prov 'Proveedor' FROM Pedido P, Producto prod, Proveedor Prove WHERE p.Id_producto = prod.Id_producto and p.Id_proveedor = Prove.Id_Proveedor;");
+                conectar.setearConsulta("SELECT P.Id_pedido, P.Id_producto, P.Costo, P.Cantidad_pedido, P.Fecha, P.Id_proveedor, prod.Nombre 'Producto', Prove.Nombre_prov 'Proveedor' FROM Pedido P, Producto prod, Proveedor Prove WHERE p.Id_producto = prod.Id_Producto and p.Id_proveedor = Prove.Id_proveedor;");
                 conectar.ejecutarLectura();
 
                 while (conectar.Lector.Read())
@@ -36,7 +36,7 @@ namespace NEGOCIO
                     {
                         temporal.Costo = (decimal)conectar.Lector["Costo"];
                     }
-                    
+
                     listaPedido.Add(temporal);
                 }
                 return listaPedido;

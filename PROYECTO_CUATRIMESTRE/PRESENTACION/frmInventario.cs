@@ -24,13 +24,67 @@ namespace PRESENTACION
             ProductoNegocio negocio = new ProductoNegocio();
             try
             {
-                dgvListaProductos.DataSource = negocio.Listar();
+                InventarioNegocio negocio1 = new InventarioNegocio();
+                dgvInventario.DataSource = negocio1.Listar();
+                ListarCombo();
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+        }
+        //MÉTODOS
+        public void ListarCombo()
+        {
+            AccesoDato conectar = new AccesoDato();
+            try
+            {
+                conectar.setearConsulta("SELECT Id_producto, Nombre FROM Producto;");
+                conectar.ejecutarLectura();
+                while (conectar.Lector.Read())
+                {
+                    string nombre = conectar.Lector["Nombre"].ToString();
+                    cbProductos.Items.Add(nombre);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            InventarioNegocio negocio = new InventarioNegocio();
+            Inventario seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Desea eliminar el registro seleccionado ? ", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Inventario)dgvInventario.CurrentRow.DataBoundItem;
+                    negocio.EliminarFijo(seleccionado.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Inventario seleccionado = new Inventario();
+            seleccionado = (Inventario)dgvInventario.CurrentRow.DataBoundItem;
+
         }
     }
 }
