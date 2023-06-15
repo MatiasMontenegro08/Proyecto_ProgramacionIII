@@ -14,6 +14,7 @@ namespace PRESENTACION
 {
     public partial class frmInventario : Form
     {
+        Inventario inventario;
         public frmInventario()
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace PRESENTACION
                 while (conectar.Lector.Read())
                 {
                     string nombre = conectar.Lector["Nombre"].ToString();
+                    string id = conectar.Lector["Id_producto"].ToString();
                     cbProductos.Items.Add(nombre);
                 }
             }
@@ -77,7 +79,24 @@ namespace PRESENTACION
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            //InventarioNegocio negocio = new InventarioNegocio();
+            //try
+            //{
+            //    if (ValidarDatos())
+            //    {
+            //        return;
+            //    }
+            //    if (inventario == null)
+            //    {
+            //        inventario = new Inventario(); 
+            //    }
+                
+            //}
+            //catch (Exception ex)
+            //{
 
+            //    throw ex;
+            //}
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

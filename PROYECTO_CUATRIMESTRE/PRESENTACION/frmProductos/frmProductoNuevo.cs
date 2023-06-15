@@ -84,7 +84,7 @@ namespace PRESENTACION
         private void btnImg_Click(object sender, EventArgs e)
         {
             archivo = new OpenFileDialog();
-            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            archivo.Filter = "jpg|*.jpg;|png|*.png|jpeg|*.jpeg";
             if (archivo.ShowDialog() == DialogResult.OK)
             {
                 txtImgUrl.Text = archivo.FileName;

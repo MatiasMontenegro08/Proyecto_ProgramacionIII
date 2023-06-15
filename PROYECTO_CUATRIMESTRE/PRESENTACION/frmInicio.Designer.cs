@@ -83,6 +83,8 @@
             this.btnProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnProveedor.FlatAppearance.BorderSize = 0;
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
+            this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedor.Location = new System.Drawing.Point(0, 483);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(200, 62);
@@ -96,6 +98,8 @@
             this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.Location = new System.Drawing.Point(0, 415);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(200, 62);
@@ -109,6 +113,8 @@
             this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnPedidos.FlatAppearance.BorderSize = 0;
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
+            this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedidos.Location = new System.Drawing.Point(0, 346);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(200, 62);
@@ -122,11 +128,13 @@
             this.btnStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnStock.FlatAppearance.BorderSize = 0;
             this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStock.Image = global::PRESENTACION.Properties.Resources._10;
+            this.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStock.Location = new System.Drawing.Point(0, 278);
             this.btnStock.Name = "btnStock";
             this.btnStock.Size = new System.Drawing.Size(200, 62);
             this.btnStock.TabIndex = 2;
-            this.btnStock.Text = "STOCK";
+            this.btnStock.Text = "INVENTARIO";
             this.btnStock.UseVisualStyleBackColor = false;
             this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
@@ -136,7 +144,7 @@
             this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.FlatAppearance.BorderSize = 0;
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.Image = global::PRESENTACION.Properties.Resources._10;
+            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducto.Location = new System.Drawing.Point(0, 210);
             this.btnProducto.Name = "btnProducto";
