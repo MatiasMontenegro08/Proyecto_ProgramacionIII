@@ -34,14 +34,14 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxProducto = new System.Windows.Forms.ComboBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.cbxProveedor = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbxProveedor = new System.Windows.Forms.ComboBox();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.cbxProducto = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.lblFecha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,7 @@
             // 
             // dgvPedido
             // 
+            this.dgvPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedido.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPedido.Location = new System.Drawing.Point(374, 73);
@@ -119,55 +120,14 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
-            // lblFecha
+            // label2
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(18, 33);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 13);
-            this.lblFecha.TabIndex = 0;
-            this.lblFecha.Text = "Fecha:";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(175, 30);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(149, 20);
-            this.txtFecha.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Producto:";
-            // 
-            // cbxProducto
-            // 
-            this.cbxProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProducto.FormattingEnabled = true;
-            this.cbxProducto.Location = new System.Drawing.Point(175, 59);
-            this.cbxProducto.Name = "cbxProducto";
-            this.cbxProducto.Size = new System.Drawing.Size(149, 21);
-            this.cbxProducto.TabIndex = 3;
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(175, 86);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(149, 20);
-            this.txtCantidad.TabIndex = 4;
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(18, 93);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(52, 13);
-            this.lblCantidad.TabIndex = 5;
-            this.lblCantidad.Text = "Cantidad:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 120);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Proveedor:";
             // 
             // cbxProveedor
             // 
@@ -178,14 +138,55 @@
             this.cbxProveedor.Size = new System.Drawing.Size(149, 21);
             this.cbxProveedor.TabIndex = 6;
             // 
-            // label2
+            // lblCantidad
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Proveedor:";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(18, 93);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(52, 13);
+            this.lblCantidad.TabIndex = 5;
+            this.lblCantidad.Text = "Cantidad:";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(175, 86);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(149, 20);
+            this.txtCantidad.TabIndex = 4;
+            // 
+            // cbxProducto
+            // 
+            this.cbxProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxProducto.FormattingEnabled = true;
+            this.cbxProducto.Location = new System.Drawing.Point(175, 59);
+            this.cbxProducto.Name = "cbxProducto";
+            this.cbxProducto.Size = new System.Drawing.Size(149, 21);
+            this.cbxProducto.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Producto:";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(175, 30);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(149, 20);
+            this.txtFecha.TabIndex = 1;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(18, 33);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.TabIndex = 0;
+            this.lblFecha.Text = "Fecha:";
             // 
             // frmPedido
             // 
