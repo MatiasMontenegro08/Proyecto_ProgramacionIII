@@ -45,7 +45,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Location = new System.Drawing.Point(392, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(392, 421);
+            this.groupBox1.Size = new System.Drawing.Size(392, 410);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -53,7 +53,7 @@
             // 
             this.pbImg.Location = new System.Drawing.Point(6, 14);
             this.pbImg.Name = "pbImg";
-            this.pbImg.Size = new System.Drawing.Size(380, 396);
+            this.pbImg.Size = new System.Drawing.Size(380, 390);
             this.pbImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImg.TabIndex = 2;
             this.pbImg.TabStop = false;
@@ -63,7 +63,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(261, 31);
+            this.btnEliminar.Location = new System.Drawing.Point(257, 386);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 38);
             this.btnEliminar.TabIndex = 9;
@@ -76,7 +76,7 @@
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(146, 31);
+            this.btnEditar.Location = new System.Drawing.Point(142, 386);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(109, 38);
             this.btnEditar.TabIndex = 8;
@@ -89,7 +89,7 @@
             this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProductos.Location = new System.Drawing.Point(16, 86);
+            this.dgvProductos.Location = new System.Drawing.Point(12, 28);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -102,7 +102,7 @@
             this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(31, 31);
+            this.btnNuevo.Location = new System.Drawing.Point(27, 386);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(109, 38);
             this.btnNuevo.TabIndex = 6;
@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 554);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);

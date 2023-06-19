@@ -39,19 +39,19 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.barraEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 594);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 554);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1004, 22);
             this.statusStrip1.TabIndex = 0;
@@ -75,7 +75,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 594);
+            this.panelMenu.Size = new System.Drawing.Size(200, 554);
             this.panelMenu.TabIndex = 4;
             // 
             // btnProveedor
@@ -85,7 +85,7 @@
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
             this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 483);
+            this.btnProveedor.Location = new System.Drawing.Point(0, 346);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(200, 62);
             this.btnProveedor.TabIndex = 5;
@@ -115,7 +115,7 @@
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 346);
+            this.btnPedidos.Location = new System.Drawing.Point(0, 483);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(200, 62);
             this.btnPedidos.TabIndex = 3;
@@ -157,6 +157,7 @@
             // pbLogo
             // 
             this.pbLogo.BackColor = System.Drawing.SystemColors.Info;
+            this.pbLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
@@ -165,35 +166,40 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
+            this.pbLogo.Click += new System.EventHandler(this.pbLogo_Click);
             // 
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
-            this.pnlPrincipal.Controls.Add(this.pictureBox2);
+            this.pnlPrincipal.Controls.Add(this.pictureBox1);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(200, 0);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(804, 594);
+            this.pnlPrincipal.Size = new System.Drawing.Size(804, 554);
             this.pnlPrincipal.TabIndex = 5;
             // 
-            // pictureBox2
+            // pictureBox1
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(784, 569);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(804, 554);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 616);
+            this.ClientSize = new System.Drawing.Size(1004, 576);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.statusStrip1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1020, 615);
+            this.MinimumSize = new System.Drawing.Size(1020, 615);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SUBLIMARTE RECONQUISTA";
@@ -202,7 +208,7 @@
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,6 +226,6 @@
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Panel pnlPrincipal;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

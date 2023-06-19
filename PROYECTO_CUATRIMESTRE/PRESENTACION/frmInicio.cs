@@ -54,5 +54,10 @@ namespace PRESENTACION
         {
             abrirFormulario(new frmProveedor());
         }
+
+        private void pbLogo_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new frmPortada());
+        }
     }
 }

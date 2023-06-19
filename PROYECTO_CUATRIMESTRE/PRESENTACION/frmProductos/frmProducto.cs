@@ -16,11 +16,11 @@ namespace PRESENTACION
     {
         
         List<Producto> listaProducto;
+        private Producto seleccionado;
         public frmProducto()
         {
             InitializeComponent();
         }
-        private Producto seleccionado;
         private void frmProducto_Load(object sender, EventArgs e)
         {
             cargarPlanilla();

@@ -18,5 +18,9 @@ namespace DOMINIO
         public decimal PrecioUnitario { get; set; }
         [DisplayName("Imágen")]
         public string ImgUrl { get; set; }
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

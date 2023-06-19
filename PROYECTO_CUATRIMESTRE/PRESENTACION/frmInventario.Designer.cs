@@ -42,19 +42,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rbSalida = new System.Windows.Forms.RadioButton();
             this.rbEntrada = new System.Windows.Forms.RadioButton();
+            this.lblDisponible = new System.Windows.Forms.Label();
+            this.txtCantDisponible = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvInventario
             // 
-            this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventario.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventario.Location = new System.Drawing.Point(300, 21);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventario.Size = new System.Drawing.Size(488, 407);
+            this.dgvInventario.Size = new System.Drawing.Size(488, 460);
             this.dgvInventario.TabIndex = 10;
             // 
             // label2
@@ -75,6 +77,7 @@
             this.cbProductos.Name = "cbProductos";
             this.cbProductos.Size = new System.Drawing.Size(178, 21);
             this.cbProductos.TabIndex = 14;
+            this.cbProductos.SelectedIndexChanged += new System.EventHandler(this.cbProductos_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -107,6 +110,7 @@
             this.btnLimpiar.TabIndex = 24;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEditar
             // 
@@ -203,12 +207,37 @@
             this.rbEntrada.Text = "ENTRADA";
             this.rbEntrada.UseVisualStyleBackColor = true;
             // 
+            // lblDisponible
+            // 
+            this.lblDisponible.AutoSize = true;
+            this.lblDisponible.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisponible.Location = new System.Drawing.Point(597, 516);
+            this.lblDisponible.Name = "lblDisponible";
+            this.lblDisponible.Size = new System.Drawing.Size(84, 17);
+            this.lblDisponible.TabIndex = 17;
+            this.lblDisponible.Text = "DISPONIBLE :";
+            // 
+            // txtCantDisponible
+            // 
+            this.txtCantDisponible.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCantDisponible.Font = new System.Drawing.Font("Yu Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantDisponible.ForeColor = System.Drawing.Color.Black;
+            this.txtCantDisponible.Location = new System.Drawing.Point(687, 500);
+            this.txtCantDisponible.Multiline = true;
+            this.txtCantDisponible.Name = "txtCantDisponible";
+            this.txtCantDisponible.Size = new System.Drawing.Size(101, 33);
+            this.txtCantDisponible.TabIndex = 18;
+            this.txtCantDisponible.TabStop = false;
+            this.txtCantDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 554);
+            this.Controls.Add(this.txtCantDisponible);
+            this.Controls.Add(this.lblDisponible);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvInventario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -219,6 +248,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -238,5 +268,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label lblDisponible;
+        private System.Windows.Forms.TextBox txtCantDisponible;
     }
 }

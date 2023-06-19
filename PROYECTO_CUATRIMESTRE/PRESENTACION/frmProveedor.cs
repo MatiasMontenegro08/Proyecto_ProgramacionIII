@@ -25,7 +25,6 @@ namespace PRESENTACION
         {
             CargarPlanilla();
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ProveedorNegocio negocio = new ProveedorNegocio();
@@ -88,14 +87,16 @@ namespace PRESENTACION
                 throw ex;
             }
         }
-
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Proveedor seleccionado = new Proveedor();
             seleccionado = (Proveedor)dgvProveedor.CurrentRow.DataBoundItem;
             CargarDatos(seleccionado);
             proveedor = seleccionado;
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
 
         //MÉTODOS
@@ -161,7 +162,9 @@ namespace PRESENTACION
             txtTel.Clear();
             txtCorreo.Clear();
             txtPagWeb.Clear();
+            proveedor = null;
             txtNombre.Focus();
         }
+
     }
 }
