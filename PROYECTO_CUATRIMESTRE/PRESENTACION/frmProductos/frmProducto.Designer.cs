@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbImg = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.pbFondo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -110,6 +113,16 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // pbFondo
+            // 
+            this.pbFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFondo.Image = ((System.Drawing.Image)(resources.GetObject("pbFondo.Image")));
+            this.pbFondo.Location = new System.Drawing.Point(0, 0);
+            this.pbFondo.Name = "pbFondo";
+            this.pbFondo.Size = new System.Drawing.Size(804, 554);
+            this.pbFondo.TabIndex = 11;
+            this.pbFondo.TabStop = false;
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +134,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.pbFondo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProducto";
             this.Text = "frmProducto";
@@ -128,6 +142,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -140,5 +155,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.PictureBox pbFondo;
     }
 }

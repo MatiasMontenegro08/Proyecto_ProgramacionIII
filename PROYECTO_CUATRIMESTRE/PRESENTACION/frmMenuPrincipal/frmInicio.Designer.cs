@@ -92,6 +92,8 @@
             this.btnProveedor.Text = "PROVEEDORES";
             this.btnProveedor.UseVisualStyleBackColor = false;
             this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
+            this.btnProveedor.MouseEnter += new System.EventHandler(this.btnProveedor_MouseEnter);
+            this.btnProveedor.MouseLeave += new System.EventHandler(this.btnProveedor_MouseLeave);
             // 
             // btnVentas
             // 
@@ -107,6 +109,8 @@
             this.btnVentas.Text = "VENTAS";
             this.btnVentas.UseVisualStyleBackColor = false;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            this.btnVentas.MouseEnter += new System.EventHandler(this.btnVentas_MouseEnter);
+            this.btnVentas.MouseLeave += new System.EventHandler(this.btnVentas_MouseLeave);
             // 
             // btnPedidos
             // 
@@ -122,6 +126,8 @@
             this.btnPedidos.Text = "PEDIDOS";
             this.btnPedidos.UseVisualStyleBackColor = false;
             this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
+            this.btnPedidos.MouseEnter += new System.EventHandler(this.btnPedidos_MouseEnter);
+            this.btnPedidos.MouseLeave += new System.EventHandler(this.btnPedidos_MouseLeave);
             // 
             // btnStock
             // 
@@ -137,6 +143,8 @@
             this.btnStock.Text = "INVENTARIO";
             this.btnStock.UseVisualStyleBackColor = false;
             this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            this.btnStock.MouseEnter += new System.EventHandler(this.btnStock_MouseEnter);
+            this.btnStock.MouseLeave += new System.EventHandler(this.btnStock_MouseLeave);
             // 
             // btnProducto
             // 
@@ -153,6 +161,8 @@
             this.btnProducto.Text = "PRODUCTOS";
             this.btnProducto.UseVisualStyleBackColor = false;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            this.btnProducto.MouseEnter += new System.EventHandler(this.btnProducto_MouseEnter);
+            this.btnProducto.MouseLeave += new System.EventHandler(this.btnProducto_MouseLeave);
             // 
             // pbLogo
             // 
@@ -167,6 +177,8 @@
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             this.pbLogo.Click += new System.EventHandler(this.pbLogo_Click);
+            this.pbLogo.MouseEnter += new System.EventHandler(this.pbLogo_MouseEnter);
+            this.pbLogo.MouseLeave += new System.EventHandler(this.pbLogo_MouseLeave);
             // 
             // pnlPrincipal
             // 
