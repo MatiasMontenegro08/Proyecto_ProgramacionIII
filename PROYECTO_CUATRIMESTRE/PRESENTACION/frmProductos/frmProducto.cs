@@ -35,29 +35,28 @@ namespace PRESENTACION
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            seleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-            frmProductoNuevo editar = new frmProductoNuevo(seleccionado);
-            editar.ShowDialog();
-            cargarPlanilla();
+            if (dgvProductos.CurrentRow != null)
+            {
+                seleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                frmProductoNuevo editar = new frmProductoNuevo(seleccionado);
+                editar.ShowDialog();
+                cargarPlanilla();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
-            Producto seleccionado;
-            try
+            if (dgvProductos.CurrentRow != null)
             {
-                DialogResult respuesta = MessageBox.Show("Desea eliminar el producto seleccionado?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-                    negocio.EliminarFijo(seleccionado.Id);
-                    cargarPlanilla();
-                }
+                EliminarRegistro();
             }
-            catch (Exception ex)
+        }
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProductos.CurrentRow != null)
             {
-                MessageBox.Show(ex.ToString());
+                Producto seleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                CargarImagen(seleccionado.ImgUrl);
             }
         }
 
@@ -74,13 +73,23 @@ namespace PRESENTACION
             dgvProductos.Columns["Id"].Visible = false;
             dgvProductos.Columns["ImgUrl"].Visible = false;
         }
-
-        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        private void EliminarRegistro()
         {
-            if (dgvProductos.CurrentRow != null)
+            ProductoNegocio negocio = new ProductoNegocio();
+            Producto seleccionado;
+            try
             {
-                Producto seleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
-                CargarImagen(seleccionado.ImgUrl);
+                DialogResult respuesta = MessageBox.Show("Desea eliminar el producto seleccionado?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Producto)dgvProductos.CurrentRow.DataBoundItem;
+                    negocio.EliminarFijo(seleccionado.Id);
+                    cargarPlanilla();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         private void CargarImagen(string imagen)

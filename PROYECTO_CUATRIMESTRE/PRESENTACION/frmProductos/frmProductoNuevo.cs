@@ -34,15 +34,12 @@ namespace PRESENTACION
         {
             Close();
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
             try
             {
                 if (ValidarDatos())
@@ -53,26 +50,10 @@ namespace PRESENTACION
                 {
                     producto = new Producto();
                 }
-                producto.Nombre = txtNombre.Text;
-                producto.Descripcion = txtDesc.Text;
-                producto.PrecioUnitario = Convert.ToDecimal(txtCosto.Text);
-                producto.ImgUrl = txtImgUrl.Text;
-
-                /*Faltan agregar los métodos de la clase Negocio para 
-                 porder cargar los productos a la base de datos*/
-                if (producto.Id != 0)
-                {
-                    negocio.Modificar(producto);
-                    MessageBox.Show("Producto modificado!");
-                }
-                else
-                {
-                    negocio.Agregar(producto);
-                    MessageBox.Show("Producto agregado!");
-                }
+                AgregarOModificar(producto);
                 GuardarImagen(archivo); //Método para poder guardar la imágen.
-                //Cerramos la ventana una vez cargado o modificado el producto.
-                //Opcion dos: antes de cerrar la ventana, preguntar si desea agregar otro producto.
+                                        //Cerramos la ventana una vez cargado o modificado el producto.
+                                        //Opcion dos: antes de cerrar la ventana, preguntar si desea agregar otro producto.
                 Close();
             }
             catch (Exception ex)
@@ -80,7 +61,6 @@ namespace PRESENTACION
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void btnImg_Click(object sender, EventArgs e)
         {
             archivo = new OpenFileDialog();
@@ -91,12 +71,10 @@ namespace PRESENTACION
                 CargarImagen(archivo.FileName);
             }
         }
-
         private void txtImgUrl_Leave(object sender, EventArgs e)
         {
             CargarImagen(txtImgUrl.Text);
         }
-
         private void frmProductoNuevo_Load(object sender, EventArgs e)
         {
             try
@@ -118,6 +96,25 @@ namespace PRESENTACION
         }
 
         //MÉTODOS
+        private void AgregarOModificar(Producto producto)
+        {
+            ProductoNegocio negocio = new ProductoNegocio();
+            producto.Nombre = txtNombre.Text;
+            producto.Descripcion = txtDesc.Text;
+            producto.PrecioUnitario = Convert.ToDecimal(txtCosto.Text);
+            producto.ImgUrl = txtImgUrl.Text;
+
+            if (producto.Id != 0)
+            {
+                negocio.Modificar(producto);
+                MessageBox.Show("Producto modificado!");
+            }
+            else
+            {
+                negocio.Agregar(producto);
+                MessageBox.Show("Producto agregado!");
+            }
+        }
         private void Limpiar()
         {
             txtNombre.Clear();
@@ -150,22 +147,21 @@ namespace PRESENTACION
             //Validar si txtCosto solo ingreso números.
             if (SoloNumero(txtCosto.Text))
             {
-                MessageBox.Show("Ingresar solo números en en campo COSTO!");
-                txtCosto.Focus();
                 return true;
             }
             return false;
         }
         private bool SoloNumero(string cadena)
         {
-            foreach (char caracter in cadena)
+            decimal valor;
+            if (!decimal.TryParse(txtCosto.Text, out valor))
             {
-                if (char.IsNumber(caracter))
-                {
-                    return false;
-                }
+                MessageBox.Show("Ingresar solo númeroS en el campo COSTO!");
+                txtCosto.Focus();
+                txtCosto.SelectAll();
+                return true;
             }
-            return true;
+            return false;
         }
         private void CargarImagen(string imagen)
         {

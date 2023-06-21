@@ -27,27 +27,13 @@ namespace PRESENTACION
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ProveedorNegocio negocio = new ProveedorNegocio();
-            Proveedor seleccionado;
-            try
+            if (dgvProveedor.CurrentRow != null)
             {
-                DialogResult respuesta = MessageBox.Show("Desea eliminar el proveedor seleccionado?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccionado = (Proveedor)dgvProveedor.CurrentRow.DataBoundItem;
-                    negocio.EliminarFijo(seleccionado.Id);
-                    CargarPlanilla();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
+                EliminarRegistro();
             }
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            ProveedorNegocio negocio = new ProveedorNegocio();
             try
             {
                 if (ValidarDatos())
@@ -58,28 +44,7 @@ namespace PRESENTACION
                 {
                     proveedor = new Proveedor();
                 }
-
-                //Puedo hacer un metodo que tenga como argumento la variable proveedor
-                proveedor.NombreProv = txtNombre.Text;
-                proveedor.DireccionProv = txtDirec.Text;
-                proveedor.TelProv = txtTel.Text;
-                proveedor.EmailProv = txtCorreo.Text;
-                proveedor.PaginaWebProv = txtPagWeb.Text;
-
-                if (proveedor.Id != 0)
-                {
-                    negocio.Modificar(proveedor);
-                    MessageBox.Show("Proveedor modificado!");
-                    Limpiar();
-                }
-                else
-                {
-                    negocio.Agregar(proveedor);
-                    MessageBox.Show("Proveedor agregado!");
-                    Limpiar();
-                }
-                CargarPlanilla();
-                proveedor = null;
+                AgregarOmodificar(proveedor);
             }
             catch (Exception ex)
             {
@@ -89,10 +54,13 @@ namespace PRESENTACION
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Proveedor seleccionado = new Proveedor();
-            seleccionado = (Proveedor)dgvProveedor.CurrentRow.DataBoundItem;
-            CargarDatos(seleccionado);
-            proveedor = seleccionado;
+            if (dgvProveedor.CurrentRow != null)
+            {
+                Proveedor seleccionado = new Proveedor();
+                seleccionado = (Proveedor)dgvProveedor.CurrentRow.DataBoundItem;
+                CargarDatos(seleccionado);
+                proveedor = seleccionado;
+            }
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -165,6 +133,49 @@ namespace PRESENTACION
             proveedor = null;
             txtNombre.Focus();
         }
+        private void AgregarOmodificar(Proveedor proveedor)
+        {
+            ProveedorNegocio negocio = new ProveedorNegocio();
+            proveedor.NombreProv = txtNombre.Text;
+            proveedor.DireccionProv = txtDirec.Text;
+            proveedor.TelProv = txtTel.Text;
+            proveedor.EmailProv = txtCorreo.Text;
+            proveedor.PaginaWebProv = txtPagWeb.Text;
 
+            if (proveedor.Id != 0)
+            {
+                negocio.Modificar(proveedor);
+                MessageBox.Show("Proveedor modificado!");
+                Limpiar();
+            }
+            else
+            {
+                negocio.Agregar(proveedor);
+                MessageBox.Show("Proveedor agregado!");
+                Limpiar();
+            }
+            CargarPlanilla();
+            proveedor = null;
+        }
+        private void EliminarRegistro()
+        {
+            ProveedorNegocio negocio = new ProveedorNegocio();
+            Proveedor seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Desea eliminar el proveedor seleccionado?", "Eliminar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Proveedor)dgvProveedor.CurrentRow.DataBoundItem;
+                    negocio.EliminarFijo(seleccionado.Id);
+                    CargarPlanilla();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

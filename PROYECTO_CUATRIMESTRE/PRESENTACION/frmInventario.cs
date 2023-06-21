@@ -34,23 +34,11 @@ namespace PRESENTACION
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            InventarioNegocio negocio = new InventarioNegocio();
-            Inventario seleccionado;
-            try
+            if (dgvInventario.CurrentRow != null)
             {
-                DialogResult respuesta = MessageBox.Show("Desea eliminar el registro seleccionado ? ", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccionado = (Inventario)dgvInventario.CurrentRow.DataBoundItem;
-                    negocio.EliminarFijo(seleccionado.Id);
-                    ListarRegistro();
-                }
+                EliminarRegistro();
             }
-            catch (Exception ex)
-            {
 
-                MessageBox.Show(ex.ToString());
-            }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -75,10 +63,13 @@ namespace PRESENTACION
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Inventario seleccionado = new Inventario();
-            seleccionado = (Inventario)dgvInventario.CurrentRow.DataBoundItem;
-            CargarDatos(seleccionado);
-            inventario = seleccionado;
+            if (dgvInventario.CurrentRow != null)
+            {
+                Inventario seleccionado = new Inventario();
+                seleccionado = (Inventario)dgvInventario.CurrentRow.DataBoundItem;
+                CargarDatos(seleccionado);
+                inventario = seleccionado;
+            }
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -208,6 +199,26 @@ namespace PRESENTACION
                 txtCantidad.Text = seleccionado.Salida.ToString();
             }
             txtFecha.Text = seleccionado.Fecha;
+        }
+        private void EliminarRegistro()
+        {
+            InventarioNegocio negocio = new InventarioNegocio();
+            Inventario seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Desea eliminar el registro seleccionado ? ", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Inventario)dgvInventario.CurrentRow.DataBoundItem;
+                    negocio.EliminarFijo(seleccionado.Id);
+                    ListarRegistro();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
