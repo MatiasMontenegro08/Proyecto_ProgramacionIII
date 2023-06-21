@@ -32,7 +32,6 @@ namespace PRESENTACION
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             InventarioNegocio negocio = new InventarioNegocio();
@@ -53,7 +52,6 @@ namespace PRESENTACION
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -75,7 +73,6 @@ namespace PRESENTACION
                 throw ex;
             }
         }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Inventario seleccionado = new Inventario();
@@ -83,7 +80,6 @@ namespace PRESENTACION
             CargarDatos(seleccionado);
             inventario = seleccionado;
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();

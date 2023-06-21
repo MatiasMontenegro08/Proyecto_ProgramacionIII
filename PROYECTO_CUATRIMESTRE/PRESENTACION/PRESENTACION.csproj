@@ -47,10 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmInicio.cs">
+    <Compile Include="frmMenuPrincipal\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicio.Designer.cs">
+    <Compile Include="frmMenuPrincipal\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInventario.cs">
@@ -59,10 +59,10 @@
     <Compile Include="frmInventario.Designer.cs">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPortada.cs">
+    <Compile Include="frmMenuPrincipal\frmPortada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPortada.Designer.cs">
+    <Compile Include="frmMenuPrincipal\frmPortada.Designer.cs">
       <DependentUpon>frmPortada.cs</DependentUpon>
     </Compile>
     <Compile Include="Proximamente\frmNuevoProv.cs">
@@ -97,13 +97,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmInicio.resx">
+    <EmbeddedResource Include="frmMenuPrincipal\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPortada.resx">
+    <EmbeddedResource Include="frmMenuPrincipal\frmPortada.resx">
       <DependentUpon>frmPortada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proximamente\frmNuevoProv.resx">

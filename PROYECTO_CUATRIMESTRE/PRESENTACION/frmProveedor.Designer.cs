@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedor));
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -46,8 +47,10 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.pbFondo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEliminar
@@ -97,7 +100,7 @@
             this.dgvProveedor.Location = new System.Drawing.Point(16, 233);
             this.dgvProveedor.Name = "dgvProveedor";
             this.dgvProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProveedor.Size = new System.Drawing.Size(776, 198);
+            this.dgvProveedor.Size = new System.Drawing.Size(776, 180);
             this.dgvProveedor.TabIndex = 10;
             // 
             // txtBuscar
@@ -234,6 +237,16 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // pbFondo
+            // 
+            this.pbFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFondo.Image = ((System.Drawing.Image)(resources.GetObject("pbFondo.Image")));
+            this.pbFondo.Location = new System.Drawing.Point(0, 0);
+            this.pbFondo.Name = "pbFondo";
+            this.pbFondo.Size = new System.Drawing.Size(804, 554);
+            this.pbFondo.TabIndex = 16;
+            this.pbFondo.TabStop = false;
+            // 
             // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,6 +261,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.pbFondo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProveedor";
             this.Text = "frmProveedor";
@@ -255,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +295,6 @@
         private System.Windows.Forms.TextBox txtPagWeb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.PictureBox pbFondo;
     }
 }

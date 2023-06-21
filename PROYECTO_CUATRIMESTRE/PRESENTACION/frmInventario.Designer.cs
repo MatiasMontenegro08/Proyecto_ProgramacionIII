@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventario));
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.cbProductos = new System.Windows.Forms.ComboBox();
@@ -44,8 +45,11 @@
             this.rbEntrada = new System.Windows.Forms.RadioButton();
             this.lblDisponible = new System.Windows.Forms.Label();
             this.txtCantDisponible = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pbFondo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvInventario
@@ -56,7 +60,7 @@
             this.dgvInventario.Location = new System.Drawing.Point(300, 21);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventario.Size = new System.Drawing.Size(488, 460);
+            this.dgvInventario.Size = new System.Drawing.Size(488, 390);
             this.dgvInventario.TabIndex = 10;
             // 
             // label2
@@ -211,24 +215,44 @@
             // 
             this.lblDisponible.AutoSize = true;
             this.lblDisponible.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisponible.Location = new System.Drawing.Point(597, 516);
+            this.lblDisponible.Location = new System.Drawing.Point(44, 370);
             this.lblDisponible.Name = "lblDisponible";
-            this.lblDisponible.Size = new System.Drawing.Size(84, 17);
+            this.lblDisponible.Size = new System.Drawing.Size(77, 17);
             this.lblDisponible.TabIndex = 17;
-            this.lblDisponible.Text = "DISPONIBLE :";
+            this.lblDisponible.Text = "DISPONIBLE";
             // 
             // txtCantDisponible
             // 
             this.txtCantDisponible.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCantDisponible.Font = new System.Drawing.Font("Yu Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantDisponible.ForeColor = System.Drawing.Color.Black;
-            this.txtCantDisponible.Location = new System.Drawing.Point(687, 500);
+            this.txtCantDisponible.Location = new System.Drawing.Point(160, 346);
             this.txtCantDisponible.Multiline = true;
             this.txtCantDisponible.Name = "txtCantDisponible";
-            this.txtCantDisponible.Size = new System.Drawing.Size(101, 33);
+            this.txtCantDisponible.Size = new System.Drawing.Size(101, 41);
             this.txtCantDisponible.TabIndex = 18;
             this.txtCantDisponible.TabStop = false;
             this.txtCantDisponible.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(44, 346);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 17);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "CANTIDAD";
+            // 
+            // pbFondo
+            // 
+            this.pbFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFondo.Image = ((System.Drawing.Image)(resources.GetObject("pbFondo.Image")));
+            this.pbFondo.Location = new System.Drawing.Point(0, 0);
+            this.pbFondo.Name = "pbFondo";
+            this.pbFondo.Size = new System.Drawing.Size(804, 554);
+            this.pbFondo.TabIndex = 20;
+            this.pbFondo.TabStop = false;
             // 
             // frmInventario
             // 
@@ -236,10 +260,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
             this.ClientSize = new System.Drawing.Size(804, 554);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCantDisponible);
             this.Controls.Add(this.lblDisponible);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvInventario);
+            this.Controls.Add(this.pbFondo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInventario";
             this.Text = "frmInventario";
@@ -247,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +297,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label lblDisponible;
         private System.Windows.Forms.TextBox txtCantDisponible;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pbFondo;
     }
 }
