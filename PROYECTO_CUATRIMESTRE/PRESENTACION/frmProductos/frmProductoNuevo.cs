@@ -156,7 +156,7 @@ namespace PRESENTACION
             decimal valor;
             if (!decimal.TryParse(txtCosto.Text, out valor))
             {
-                MessageBox.Show("Ingresar solo númeroS en el campo COSTO!");
+                MessageBox.Show("Ingresar solo números en el campo COSTO!");
                 txtCosto.Focus();
                 txtCosto.SelectAll();
                 return true;
