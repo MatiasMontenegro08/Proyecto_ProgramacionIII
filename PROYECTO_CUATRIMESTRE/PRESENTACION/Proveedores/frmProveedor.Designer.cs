@@ -88,7 +88,7 @@
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(93, 38);
             this.btnNuevo.TabIndex = 11;
-            this.btnNuevo.Text = "NUEVO";
+            this.btnNuevo.Text = "AGREGAR";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 

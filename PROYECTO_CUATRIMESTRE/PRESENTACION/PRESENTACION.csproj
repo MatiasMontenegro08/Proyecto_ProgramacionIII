@@ -47,16 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmIngresoEgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresoEgreso.Designer.cs">
+      <DependentUpon>frmIngresoEgreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuPrincipal\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMenuPrincipal\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventario.cs">
+    <Compile Include="Inventario\frmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInventario.Designer.cs">
+    <Compile Include="Inventario\frmInventario.Designer.cs">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenuPrincipal\frmPortada.cs">
@@ -89,18 +95,21 @@
     <Compile Include="frmProductos\frmProducto.Designer.cs">
       <DependentUpon>frmProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProveedor.cs">
+    <Compile Include="Proveedores\frmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProveedor.Designer.cs">
+    <Compile Include="Proveedores\frmProveedor.Designer.cs">
       <DependentUpon>frmProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmIngresoEgreso.resx">
+      <DependentUpon>frmIngresoEgreso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInventario.resx">
+    <EmbeddedResource Include="Inventario\frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal\frmPortada.resx">
@@ -118,7 +127,7 @@
     <EmbeddedResource Include="frmProductos\frmProducto.resx">
       <DependentUpon>frmProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProveedor.resx">
+    <EmbeddedResource Include="Proveedores\frmProveedor.resx">
       <DependentUpon>frmProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

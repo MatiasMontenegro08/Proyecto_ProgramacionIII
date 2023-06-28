@@ -18,7 +18,7 @@ namespace NEGOCIO
         }
         public AccesoDato()
         {
-            conexion = new SqlConnection("server=DESKTOP-LJQ0NVN\\SQLEXPRESS; database=DBStock; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=DBStock; integrated security=true");
             comando = new SqlCommand();
         }
         public void setearConsulta(string consulta)

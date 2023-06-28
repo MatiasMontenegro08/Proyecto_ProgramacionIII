@@ -33,10 +33,11 @@
             this.barraEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnProveedor = new System.Windows.Forms.Button();
-            this.btnVentas = new System.Windows.Forms.Button();
-            this.btnPedidos = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
+            this.btnEntregas = new System.Windows.Forms.Button();
+            this.btnIngEgr = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -67,10 +68,11 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(180)))));
             this.panelMenu.Controls.Add(this.btnProveedor);
-            this.panelMenu.Controls.Add(this.btnVentas);
-            this.panelMenu.Controls.Add(this.btnPedidos);
-            this.panelMenu.Controls.Add(this.btnStock);
             this.panelMenu.Controls.Add(this.btnProducto);
+            this.panelMenu.Controls.Add(this.btnVentas);
+            this.panelMenu.Controls.Add(this.btnEntregas);
+            this.panelMenu.Controls.Add(this.btnIngEgr);
+            this.panelMenu.Controls.Add(this.btnStock);
             this.panelMenu.Controls.Add(this.pbLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -81,70 +83,20 @@
             // btnProveedor
             // 
             this.btnProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProveedor.FlatAppearance.BorderSize = 0;
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
             this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 346);
+            this.btnProveedor.Location = new System.Drawing.Point(0, 470);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(200, 62);
-            this.btnProveedor.TabIndex = 5;
+            this.btnProveedor.TabIndex = 10;
             this.btnProveedor.Text = "PROVEEDORES";
             this.btnProveedor.UseVisualStyleBackColor = false;
             this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             this.btnProveedor.MouseEnter += new System.EventHandler(this.btnProveedor_MouseEnter);
             this.btnProveedor.MouseLeave += new System.EventHandler(this.btnProveedor_MouseLeave);
-            // 
-            // btnVentas
-            // 
-            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.btnVentas.FlatAppearance.BorderSize = 0;
-            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
-            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Location = new System.Drawing.Point(0, 415);
-            this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(200, 62);
-            this.btnVentas.TabIndex = 4;
-            this.btnVentas.Text = "VENTAS";
-            this.btnVentas.UseVisualStyleBackColor = false;
-            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
-            this.btnVentas.MouseEnter += new System.EventHandler(this.btnVentas_MouseEnter);
-            this.btnVentas.MouseLeave += new System.EventHandler(this.btnVentas_MouseLeave);
-            // 
-            // btnPedidos
-            // 
-            this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.btnPedidos.FlatAppearance.BorderSize = 0;
-            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnPedidos.Image")));
-            this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 483);
-            this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(200, 62);
-            this.btnPedidos.TabIndex = 3;
-            this.btnPedidos.Text = "PEDIDOS";
-            this.btnPedidos.UseVisualStyleBackColor = false;
-            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
-            this.btnPedidos.MouseEnter += new System.EventHandler(this.btnPedidos_MouseEnter);
-            this.btnPedidos.MouseLeave += new System.EventHandler(this.btnPedidos_MouseLeave);
-            // 
-            // btnStock
-            // 
-            this.btnStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
-            this.btnStock.FlatAppearance.BorderSize = 0;
-            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStock.Image = global::PRESENTACION.Properties.Resources._10;
-            this.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStock.Location = new System.Drawing.Point(0, 278);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(200, 62);
-            this.btnStock.TabIndex = 2;
-            this.btnStock.Text = "INVENTARIO";
-            this.btnStock.UseVisualStyleBackColor = false;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
-            this.btnStock.MouseEnter += new System.EventHandler(this.btnStock_MouseEnter);
-            this.btnStock.MouseLeave += new System.EventHandler(this.btnStock_MouseLeave);
             // 
             // btnProducto
             // 
@@ -154,15 +106,87 @@
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(0, 210);
+            this.btnProducto.Location = new System.Drawing.Point(0, 402);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(200, 62);
-            this.btnProducto.TabIndex = 1;
+            this.btnProducto.TabIndex = 9;
             this.btnProducto.Text = "PRODUCTOS";
             this.btnProducto.UseVisualStyleBackColor = false;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             this.btnProducto.MouseEnter += new System.EventHandler(this.btnProducto_MouseEnter);
             this.btnProducto.MouseLeave += new System.EventHandler(this.btnProducto_MouseLeave);
+            // 
+            // btnVentas
+            // 
+            this.btnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVentas.FlatAppearance.BorderSize = 0;
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.Location = new System.Drawing.Point(0, 334);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(200, 62);
+            this.btnVentas.TabIndex = 6;
+            this.btnVentas.Text = "VENTAS";
+            this.btnVentas.UseVisualStyleBackColor = false;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            this.btnVentas.MouseEnter += new System.EventHandler(this.btnVentas_MouseEnter);
+            this.btnVentas.MouseLeave += new System.EventHandler(this.btnVentas_MouseLeave);
+            // 
+            // btnEntregas
+            // 
+            this.btnEntregas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnEntregas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntregas.FlatAppearance.BorderSize = 0;
+            this.btnEntregas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntregas.Image = ((System.Drawing.Image)(resources.GetObject("btnEntregas.Image")));
+            this.btnEntregas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEntregas.Location = new System.Drawing.Point(0, 266);
+            this.btnEntregas.Name = "btnEntregas";
+            this.btnEntregas.Size = new System.Drawing.Size(200, 62);
+            this.btnEntregas.TabIndex = 4;
+            this.btnEntregas.Text = "ENTREGAS";
+            this.btnEntregas.UseVisualStyleBackColor = false;
+            this.btnEntregas.Click += new System.EventHandler(this.btnEntregas_Click);
+            this.btnEntregas.MouseEnter += new System.EventHandler(this.btnEntregas_MouseEnter);
+            this.btnEntregas.MouseLeave += new System.EventHandler(this.btnEntregas_MouseLeave);
+            // 
+            // btnIngEgr
+            // 
+            this.btnIngEgr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnIngEgr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngEgr.FlatAppearance.BorderSize = 0;
+            this.btnIngEgr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngEgr.Image = ((System.Drawing.Image)(resources.GetObject("btnIngEgr.Image")));
+            this.btnIngEgr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngEgr.Location = new System.Drawing.Point(0, 198);
+            this.btnIngEgr.Name = "btnIngEgr";
+            this.btnIngEgr.Size = new System.Drawing.Size(200, 62);
+            this.btnIngEgr.TabIndex = 3;
+            this.btnIngEgr.Text = "INGRESO/EGRESO";
+            this.btnIngEgr.UseVisualStyleBackColor = false;
+            this.btnIngEgr.Click += new System.EventHandler(this.btnIngEgr_Click);
+            this.btnIngEgr.MouseEnter += new System.EventHandler(this.btnPedidos_MouseEnter);
+            this.btnIngEgr.MouseLeave += new System.EventHandler(this.btnPedidos_MouseLeave);
+            // 
+            // btnStock
+            // 
+            this.btnStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStock.FlatAppearance.BorderSize = 0;
+            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStock.Image = global::PRESENTACION.Properties.Resources._10;
+            this.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStock.Location = new System.Drawing.Point(0, 130);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(200, 62);
+            this.btnStock.TabIndex = 2;
+            this.btnStock.Text = "INVENTARIO";
+            this.btnStock.UseVisualStyleBackColor = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            this.btnStock.MouseEnter += new System.EventHandler(this.btnStock_MouseEnter);
+            this.btnStock.MouseLeave += new System.EventHandler(this.btnStock_MouseLeave);
             // 
             // pbLogo
             // 
@@ -172,7 +196,7 @@
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(200, 200);
+            this.pbLogo.Size = new System.Drawing.Size(200, 124);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
@@ -232,13 +256,14 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel barraEstado;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnProveedor;
-        private System.Windows.Forms.Button btnVentas;
-        private System.Windows.Forms.Button btnPedidos;
+        private System.Windows.Forms.Button btnIngEgr;
         private System.Windows.Forms.Button btnStock;
-        private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnEntregas;
+        private System.Windows.Forms.Button btnProveedor;
+        private System.Windows.Forms.Button btnProducto;
+        private System.Windows.Forms.Button btnVentas;
     }
 }

@@ -63,10 +63,17 @@ namespace PRESENTACION
         //MÉTODOS
         private void cargarPlanilla()
         {
-            ProductoNegocio lista = new ProductoNegocio();
-            listaProducto = lista.Listar();
-            dgvProductos.DataSource = listaProducto;
-            OcultarColumnas();
+            try
+            {
+                ProductoNegocio lista = new ProductoNegocio();
+                listaProducto = lista.Listar();
+                dgvProductos.DataSource = listaProducto;
+                OcultarColumnas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void OcultarColumnas()
         {
