@@ -38,7 +38,6 @@ namespace PRESENTACION
             {
                 EliminarRegistro();
             }
-
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -97,13 +96,6 @@ namespace PRESENTACION
             inventario = null;
             cbProductos.Focus();
         }
-        //private void CargarPlanilla()
-        //{
-        //    InventarioNegocio negocio = new InventarioNegocio();
-        //    listInv = negocio.Listar();
-        //    dgvInventario.DataSource = listInv;
-        //    OcultarColumnas();
-        //}
         private void OcultarColumnas()
         {
             dgvInventario.Columns["Id"].Visible = false;
@@ -216,7 +208,6 @@ namespace PRESENTACION
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }

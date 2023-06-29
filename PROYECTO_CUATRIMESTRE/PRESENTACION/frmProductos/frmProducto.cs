@@ -25,14 +25,12 @@ namespace PRESENTACION
         {
             cargarPlanilla();
         }
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmProductoNuevo nuevo = new frmProductoNuevo();
             nuevo.ShowDialog();
             cargarPlanilla();
         }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvProductos.CurrentRow != null)
@@ -43,7 +41,6 @@ namespace PRESENTACION
                 cargarPlanilla();
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvProductos.CurrentRow != null)
