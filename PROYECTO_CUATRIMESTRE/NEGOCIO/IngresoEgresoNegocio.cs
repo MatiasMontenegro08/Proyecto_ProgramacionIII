@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -80,8 +82,8 @@ namespace NEGOCIO
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("UPDATE LibroDiario SET Detalle = @Detalle, Fecha = @Fecha, Igreso = @Ing, Egreso = @Egr WHERE Id = @Id;");
-                conectar.setearParametro("@Detalle",selecionado.Detalle);
+                conectar.setearConsulta("UPDATE LibroDiario SET Detalle = @Detalle, Fecha = @Fecha, Ingreso = @Ing, Egreso = @Egr WHERE Id = @Id;");
+                conectar.setearParametro("@Detalle", selecionado.Detalle);
                 conectar.setearParametro("@Fecha", selecionado.Fecha);
                 conectar.setearParametro("@Ing", selecionado.Ingreso);
                 conectar.setearParametro("@Egr", selecionado.Egreso);
@@ -97,18 +99,57 @@ namespace NEGOCIO
                 conectar.cerrarConexion();
             }
         }
-        public void ObtenerTotal()
+        public decimal ObtenerTotal()
         {
             AccesoDato conectar = new AccesoDato();
+            decimal total = 0;
             try
             {
-                conectar.setearConsulta("SELECT SUM(Ingreso - Egreso) AS Total FROM LibroDiario;");
+                
+                conectar.setearConsulta("SELECT COALESCE(SUM(Ingreso - Egreso), 0) AS Total FROM LibroDiario;");
+                /*
+                 * En la consulta para asegurarnos de que el resultado de no sea nulo. 
+                 * Si la suma es nula (es decir, no hay registros en la tabla), COALESCE devolverá el valor 
+                 * predeterminado de cero.
+                 */
                 conectar.ejecutarLectura();
+
                 while (conectar.Lector.Read())
                 {
                     IngEgr temporal = new IngEgr();
                     temporal.Total = (decimal)conectar.Lector["Total"];
+                    total += temporal.Total;
                 }
+                return total;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<IngEgr> FiltroDesdeHasta(string fecha1, string fecha2)
+        {
+            AccesoDato conectar = new AccesoDato();
+            List<IngEgr> filtro = new List<IngEgr>();
+            try
+            {
+                string f1 = fecha1, f2 = fecha2;
+                conectar.setearConsulta("SELECT Id, Detalle, Fecha, Ingreso, Egreso FROM LibroDiario WHERE CONVERT(date, Fecha, 103) BETWEEN @Fecha1 AND @Fecha2;");
+                conectar.setearParametro("@Fecha1", f1);
+                conectar.setearParametro("@Fecha2", f2);
+                conectar.ejecutarLectura();
+                while (conectar.Lector.Read())
+                {
+                    IngEgr temporal = new IngEgr();
+                    temporal.Id = (int)conectar.Lector["Id"];
+                    temporal.Detalle = (string)conectar.Lector["Detalle"];
+                    temporal.Fecha = (string)conectar.Lector["Fecha"];
+                    temporal.Ingreso = (decimal)conectar.Lector["Ingreso"];
+                    temporal.Egreso = (decimal)conectar.Lector["Egreso"];
+
+                    filtro.Add(temporal);
+                }
+                return filtro;
             }
             catch (Exception ex)
             {
