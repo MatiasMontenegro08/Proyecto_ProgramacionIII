@@ -30,7 +30,7 @@ namespace PRESENTACION
         }
         private void btnEntregas_Click(object sender, EventArgs e)
         {
-
+            abrirFormulario(new frmPedido());
         }
         private void btnVentas_Click(object sender, EventArgs e)
         {

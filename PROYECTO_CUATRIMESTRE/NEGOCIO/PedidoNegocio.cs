@@ -15,27 +15,27 @@ namespace NEGOCIO
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("SELECT P.Id_pedido, P.Id_producto, P.Costo, P.Cantidad_pedido, P.Fecha, P.Id_proveedor, prod.Nombre 'Producto', Prove.Nombre_prov 'Proveedor' FROM Pedido P, Producto prod, Proveedor Prove WHERE p.Id_producto = prod.Id_Producto and p.Id_proveedor = Prove.Id_proveedor;");
+                conectar.setearConsulta("SELECT Id, Detalle, Fecha_Entrega, Primera_Entrega, Fecha_Retiro, Segunda_Entrega, Total, Forma_Pago, Forma_Pago2 FROM PlanillaEntregas;");
                 conectar.ejecutarLectura();
 
                 while (conectar.Lector.Read())
                 {
                     Pedido temporal = new Pedido();
-                    temporal.Id = (int)conectar.Lector["Id_pedido"];
-                    temporal.IdProducto = (int)conectar.Lector["Id_producto"];
-                    temporal.CantidadProducto = (int)conectar.Lector["Cantidad_pedido"];
-                    if (!(conectar.Lector["Fecha"] is DBNull))
+                    temporal.Id = (int)conectar.Lector["Id"];
+                    temporal.Detalle = (string)conectar.Lector["Detalle"];
+                    temporal.FechaEntrega = (string)conectar.Lector["Fecha_Entrega"];
+                    temporal.PrimEntrega = (decimal)conectar.Lector["Primera_Entrega"];
+                    temporal.FechaRetiro = (string)conectar.Lector["Fecha_Retiro"];
+                    temporal.SegEntrega = (decimal)conectar.Lector["Segunda_Entrega"];
+                    if (!(conectar.Lector["Forma_Pago"] is DBNull))
                     {
-                        temporal.FechaPedido = (string)conectar.Lector["Fecha"];
+                        temporal.FormaPago = (string)conectar.Lector["Forma_Pago"];
                     }
-                    temporal.IdProveedor = (int)conectar.Lector["Id_proveedor"];
-                    temporal.Producto = (string)conectar.Lector["Producto"];
-                    temporal.Proveedor = (string)conectar.Lector["Proveedor"];
-
-                    if (!(conectar.Lector["Costo"] is DBNull))
+                    if (!(conectar.Lector["Forma_Pago2"] is DBNull))
                     {
-                        temporal.Costo = (decimal)conectar.Lector["Costo"];
+                        temporal.FormaPago2 = (string)conectar.Lector["Forma_Pago2"];
                     }
+                    temporal.Total = (decimal)conectar.Lector["Total"];
 
                     listaPedido.Add(temporal);
                 }
@@ -43,7 +43,6 @@ namespace NEGOCIO
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -56,18 +55,19 @@ namespace NEGOCIO
             AccesoDato datos = new AccesoDato();
             try
             {
-                datos.setearConsulta("INSERT INTO Pedido (Id_producto, Cantidad_pedido, Fecha, Id_proveedor, Costo) values (@IdProducto, @Canti, @Fecha, @Idprove, @Costo);");
-                datos.setearParametro("@IdProducto", nuevo.IdProducto);
-                datos.setearParametro("@Canti", nuevo.CantidadProducto);
-                datos.setearParametro("@Fecha", nuevo.FechaPedido);
-                datos.setearParametro("@Idprove", nuevo.IdProveedor);
-                datos.setearParametro("@Costo", nuevo.Costo);
+                datos.setearConsulta("INSERT INTO PlanillaEntregas (Detalle, Fecha_Entrega, Primera_Entrega, Fecha_Retiro, Segunda_Entrega, Forma_Pago, Total) VALUES (@Detalle, @Fecha1, @Entrega1, @Fecha2, @Entrega2, @FormPago, @Entrega1 + @Entrega2);");
+                datos.setearParametro("@Detalle", nuevo.Detalle);
+                datos.setearParametro("@Fecha1", nuevo.FechaEntrega);
+                datos.setearParametro("@Entrega1", nuevo.PrimEntrega);
+                datos.setearParametro("@Fecha2", nuevo.FechaRetiro);
+                datos.setearParametro("@Entrega2", nuevo.SegEntrega);
+                datos.setearParametro("@FormPago", nuevo.FormaPago);
+                //El total se sumaría con los valores de entrega 1 y entrega 2
 
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -80,13 +80,13 @@ namespace NEGOCIO
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("UPDATE Pedido SET Id_producto = @IdProd, Cantidad_pedido = @Cant, Fecha = @Fecha, Id_proveedor = @IdProve, Costo = @Costo WHERE Id_pedido = @Id;");
-                conectar.setearParametro("@IdProd", seleccionado.IdProducto);
-                conectar.setearParametro("@Cant", seleccionado.CantidadProducto);
-                conectar.setearParametro("@Fecha", seleccionado.FechaPedido);
-                conectar.setearParametro("@IdProve", seleccionado.IdProveedor);
-                conectar.setearParametro("@Costo", seleccionado.Costo);
-                conectar.setearParametro("@Id", seleccionado.Id);
+                conectar.setearConsulta("UPDATE PlanillaEntregas SET Detalle = @Detalle, Fecha_Entrega = @Fecha1, Primera_Entrega = @Entrega1, Fecha_Retiro = @Fecha2, Segunda_Entrega = @Entrega2, Forma_Pago = @FormPago WHERE Id = @Id;");
+                conectar.setearParametro("@Detalle", seleccionado.Detalle);
+                conectar.setearParametro("@Fecha1", seleccionado.FechaEntrega);
+                conectar.setearParametro("@Entrega1", seleccionado.PrimEntrega);
+                conectar.setearParametro("@Fecha2", seleccionado.FechaRetiro);
+                conectar.setearParametro("@Entrega2", seleccionado.SegEntrega);
+                conectar.setearParametro("@FormPago", seleccionado.FormaPago);
                 conectar.ejecutarAccion();
             }
             catch (Exception ex)
@@ -98,12 +98,25 @@ namespace NEGOCIO
                 conectar.cerrarConexion();
             }
         }
+        public void ActualizarTotal(Pedido seleccionado)
+        {
+            AccesoDato conectar = new AccesoDato();
+            try
+            {
+                conectar.setearConsulta("UPDATE PlanillaEntregas SET  Total = (Primera_Entrega + Segunda_Entrega) WHERE Id = @Id;");
+                conectar.setearParametro("@Id", seleccionado.Id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void EliminarFijo(int seleccionado)
         {
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("DELETE FROM Pedido WHERE Id_pedido = @Id;");
+                conectar.setearConsulta("DELETE FROM PlanillaEntregas WHERE Id = @Id;");
                 conectar.setearParametro("@Id", seleccionado);
                 conectar.ejecutarAccion();
             }
@@ -114,6 +127,34 @@ namespace NEGOCIO
             finally
             {
                 conectar.cerrarConexion();
+            }
+        }
+        public decimal ObtenerTotal()
+        {
+            AccesoDato conectar = new AccesoDato();
+            decimal total = 0;
+            try
+            {
+
+                conectar.setearConsulta("SELECT COALESCE(SUM(Total), 0) AS Total FROM PlanillaEntregas;");
+                /*
+                 * En la consulta para asegurarnos de que el resultado de no sea nulo. 
+                 * Si la suma es nula (es decir, no hay registros en la tabla), COALESCE devolverá el valor 
+                 * predeterminado de cero.
+                 */
+                conectar.ejecutarLectura();
+
+                while (conectar.Lector.Read())
+                {
+                    Pedido temporal = new Pedido();
+                    temporal.Total = (decimal)conectar.Lector["Total"];
+                    total += temporal.Total;
+                }
+                return total;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

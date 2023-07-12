@@ -15,84 +15,131 @@ namespace PRESENTACION
     public partial class frmPedido : Form
     {
         List<Pedido> listaPedido;
-
+        Pedido registro;
         public frmPedido()
         {
             InitializeComponent();
         }
-
         private void frmPedido_Load(object sender, EventArgs e)
         {
-            cargarPlanilla();
-        }
-
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            PedidoNegocio negocio = new PedidoNegocio();
             try
             {
-                if (Validaciones())
-                {
-                    return;
-                }
-                Pedido pedido = new Pedido();
-                pedido.FechaPedido = txtFecha.Text;
-                pedido.IdProducto = Convert.ToInt32(cbxProducto.SelectedItem);
-
+                CargarPlanilla();
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show("Error!" + ex.ToString());
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvPlanilla.CurrentRow != null)
+            {
+                Pedido registroselec = new Pedido();
+                registroselec = (Pedido)dgvPlanilla.CurrentRow.DataBoundItem;
+                CargarDatos(registroselec);
+                registro = registroselec;
+            }
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvPlanilla.CurrentRow != null)
+            {
+                EliminarRegistro();
             }
         }
 
         //MÉTODOS
-        private void cargarPlanilla()
+        private void CargarPlanilla()
         {
             PedidoNegocio negocio = new PedidoNegocio();
-            listaPedido = negocio.Listar();
-            dgvPedido.DataSource = listaPedido;
-            OcultarColumnas();
+            dgvPlanilla.DataSource = negocio.Listar();
+            ocultarColumnas();
+            lblValiDetalle.Text = "";
+            lblValiPrimera.Text = "";
+            lblValiSegunda.Text = "";
+            Total();
         }
-        private void OcultarColumnas()
+        private void ocultarColumnas()
         {
-            dgvPedido.Columns["Id"].Visible = false;
-            dgvPedido.Columns["IdProducto"].Visible = false;
-            dgvPedido.Columns["IdProveedor"].Visible = false;
+            dgvPlanilla.Columns["Id"].Visible = false;
+            dgvPlanilla.Columns["Total"].Visible = false;
         }
-        private bool Validaciones()
+        private void Total()
         {
-            if (txtFecha.Text == "")
-            {
-                MessageBox.Show("Completar el campo FECHA!");
-                txtFecha.Focus();
-                return true;
-            }
-            if (txtCantidad.Text == "")
-            {
-                MessageBox.Show("Completar el campo CANTIDAD!");
-                txtCantidad.Focus();
-                return true;
-            }
-            if (SoloNumero(txtCantidad.Text))
-            {
-                MessageBox.Show("Ingresar solo números en en campo CANTIDAD!");
-                txtCantidad.Focus();
-                return true;
-            }
-            return false;
+            PedidoNegocio negocio = new PedidoNegocio();
+            decimal total = negocio.ObtenerTotal();
+            lblResultado.Text = "$ " + total.ToString();
         }
-        private bool SoloNumero(string cadena)
+        private void Limpiar()
         {
-            foreach (char caracter in cadena)
+            txtDetalle.Clear();
+            cbPriEntrega.Checked = false;
+            cbSegEntrega.Checked = false;
+            txtFecha1.Clear();
+            txtFecha2.Clear();
+            txtMonto1.Clear();
+            txtMonto2.Clear();
+            rbTrans1.Checked = false;
+            rbTrans2.Checked = false;
+            rbEfectivo1.Checked = false;
+            rbEfectivo2.Checked = false;
+            lblValiDetalle.Text = "";
+            lblValiPrimera.Text = "";
+            registro = null;
+            txtDetalle.Focus();
+        }
+        private void EliminarRegistro()
+        {
+            PedidoNegocio negocio = new PedidoNegocio();
+            Pedido seleccionado;
+            try
             {
-                if (char.IsNumber(caracter))
+                DialogResult respuesta = MessageBox.Show("Desea eliminar el registro seleccionado ? ", "Eliminar registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
                 {
-                    return false;
+                    seleccionado = (Pedido)dgvPlanilla.CurrentRow.DataBoundItem;
+                    negocio.EliminarFijo(seleccionado.Id);
+                    CargarPlanilla();
                 }
             }
-            return true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void CargarDatos(Pedido registroselec)
+        {
+            txtDetalle.Text = registroselec.Detalle;
+            txtFecha1.Text = registroselec.FechaEntrega;
+            txtMonto1.Text = registroselec.PrimEntrega.ToString();
+            txtFecha2.Text = registroselec.FechaRetiro.ToString();
+            txtMonto2.Text = registroselec.SegEntrega.ToString();
+            if (registro.FormaPago == "TRANSFERENCIA")
+            {
+                rbTrans1.Checked = true;
+            }
+            else
+            {
+                rbEfectivo1.Checked = true;
+            }
+            if (registro.FormaPago2 == "TRANSFERENCIA")
+            {
+                rbTrans2.Checked = true;
+            }
+            else
+            {
+                rbEfectivo2.Checked = true;
+            }
         }
     }
 }

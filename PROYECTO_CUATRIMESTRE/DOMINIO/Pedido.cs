@@ -11,19 +11,19 @@ namespace DOMINIO
     public class Pedido
     {
         public int Id { get; set; }
-        [DisplayName("Producto")]
-        public int IdProducto { get; set; }
+        public string Detalle { get; set; }
         [DisplayName("Fecha")]
-        public string FechaPedido { get; set; }
-        public string Producto { get; set; }
-        [DisplayName("Cantidad")]
-        public int CantidadProducto { get; set; }
-        public decimal Costo { get; set; }
-
-        [DisplayName("Proveedor")]
-        public int IdProveedor { get; set; }
-        
-        public string Proveedor { get; set; }
-
+        public string FechaEntrega { get; set; }
+        [DisplayName("Primera Entrega")]
+        public decimal PrimEntrega { get; set; }
+        [DisplayName("Forma de Pago")]
+        public string FormaPago { get; set; }
+        [DisplayName("Fecha")]
+        public string FechaRetiro { get; set; }
+        [DisplayName("Segunda Entrega")]
+        public decimal SegEntrega { get; set; }
+        [DisplayName("Forma de Pago")]
+        public string FormaPago2 { get; set; }
+        public decimal Total { get; set; }
     }
 }
