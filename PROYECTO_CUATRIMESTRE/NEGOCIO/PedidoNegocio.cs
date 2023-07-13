@@ -80,13 +80,15 @@ namespace NEGOCIO
             AccesoDato conectar = new AccesoDato();
             try
             {
-                conectar.setearConsulta("UPDATE PlanillaEntregas SET Detalle = @Detalle, Fecha_Entrega = @Fecha1, Primera_Entrega = @Entrega1, Fecha_Retiro = @Fecha2, Segunda_Entrega = @Entrega2, Forma_Pago = @FormPago WHERE Id = @Id;");
+                conectar.setearConsulta("UPDATE PlanillaEntregas SET Detalle = @Detalle, Fecha_Entrega = @Fecha1, Primera_Entrega = @Entrega1, Fecha_Retiro = @Fecha2, Segunda_Entrega = @Entrega2, Forma_Pago = @FormPago, Forma_Pago2 = @FormaPago2, Total = @Entrega1 + @Entrega2 WHERE Id = @Id;");
                 conectar.setearParametro("@Detalle", seleccionado.Detalle);
                 conectar.setearParametro("@Fecha1", seleccionado.FechaEntrega);
                 conectar.setearParametro("@Entrega1", seleccionado.PrimEntrega);
                 conectar.setearParametro("@Fecha2", seleccionado.FechaRetiro);
                 conectar.setearParametro("@Entrega2", seleccionado.SegEntrega);
                 conectar.setearParametro("@FormPago", seleccionado.FormaPago);
+                conectar.setearParametro("@FormaPago2", seleccionado.FormaPago2);
+                conectar.setearParametro("@Id", seleccionado.Id);
                 conectar.ejecutarAccion();
             }
             catch (Exception ex)
